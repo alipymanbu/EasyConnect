@@ -1,32 +1,26 @@
-[![Build status](https://ci.appveyor.com/api/projects/status/u8ugbo8oh1mffhet?svg=true)](https://ci.appveyor.com/project/lstratman/easyconnect)
+# easyconnect
 
-This is a Windows tabbed remote desktop application whose UI was designed to resemble Chrome's.  Currently it supports Microsoft's Remote Desktop Protocol (RDP), Secure Shell (SSH), Telnet, PowerShell, and VNC but has a plugin architecture designed to enable third-party support for other protocols such as Citrix, etc.
+本仓库是「easyconnect」的安卓版本获取入口，附使用资料索引。
 
-<a href="http://lstratman.github.io/EasyConnect/images/screenshots/bookmarks.png" target="_blank"><img src="http://lstratman.github.io/EasyConnect/images/screenshots/thumbnails/bookmarks.png"/></a>
-<a href="http://lstratman.github.io/EasyConnect/images/screenshots/rdp.png" target="_blank"><img src="http://lstratman.github.io/EasyConnect/images/screenshots/thumbnails/rdp.png"/></a>
-<a href="http://lstratman.github.io/EasyConnect/images/screenshots/vnc.png" target="_blank"><img src="http://lstratman.github.io/EasyConnect/images/screenshots/thumbnails/vnc.png"/></a>
-<a href="http://lstratman.github.io/EasyConnect/images/screenshots/ssh.png" target="_blank"><img src="http://lstratman.github.io/EasyConnect/images/screenshots/thumbnails/ssh.png"/></a>
-<a href="http://lstratman.github.io/EasyConnect/images/screenshots/powershell.png" target="_blank"><img src="http://lstratman.github.io/EasyConnect/images/screenshots/thumbnails/powershell.png"/></a>
-<a href="http://lstratman.github.io/EasyConnect/images/screenshots/options.png" target="_blank"><img src="http://lstratman.github.io/EasyConnect/images/screenshots/thumbnails/options.png"/></a>
-<a href="http://lstratman.github.io/EasyConnect/images/screenshots/history.png" target="_blank"><img src="http://lstratman.github.io/EasyConnect/images/screenshots/thumbnails/history.png"/></a>
+## 安装文件资源（夸克网盘）
 
-## Installation Options
+> **easyconnect 安装文件资源（夸克网盘）**：[https://pan.quark.cn/s/391039148735](https://pan.quark.cn/s/391039148735)
 
- - [Release installer](https://lstratman.github.io/EasyConnect/updates/EasyConnect.msi)
- - [CI installer](https://ci.appveyor.com/api/projects/lstratman/EasyConnect/artifacts/EasyConnect.msi)
- - [Microsoft Store](https://www.microsoft.com/en-us/store/p/easyconnect/9nml5g3phdg1?rtc=1)
- - WinGet: `winget install easyconnect`
- - Chocolatey: `choco install easyconnect`
+## 官方项目
 
-## Implementing Protocol Plugins
+- 上游项目：[lstratman/EasyConnect](https://github.com/lstratman/EasyConnect)
 
-For an example of implementing a protocol plugin, you can look at the `EasyConnect.Protocols.Rdp` project.  You'll want to reference` EasyConnect.Common` and `EasyConnect.Protocols` and then implement classes that inherit from the following base classes:
+## 更多资料
 
-* `BaseConnection` - This holds the configuration for a connection using your protocol.  Make sure to implement your own `ISerializable` constructor and override `GetObjectData()`.
-* `BaseConnectionForm<T>` - This is the form that contains the actual UI controls and logic to create a connection using your protocol.  The easiest thing to do is initially derive from `Form`, design the window (bear in mind that it will be displayed as a child of a `Panel` control with a `BorderStyle` of `None`), and then change the base class to `BaseConnectionForm<T>`.
-* `IOptionsForm` - This is the form that will allow the user to configure a connection using your protocol.  Like `BaseConnectionForm<T>`, this will be displayed as a child of a `Panel` control with a `BorderStyle` of `None`.
-* `BaseProtocol` - This serves simply to aggregate the previous classes and provide some display data for your new protocol.
+- [下载与安装教程](https://github.com/alipymanbu/Android/blob/master/%E5%AE%98%E7%BD%91%E7%89%88APP%E4%B8%8B%E8%BD%BD/easyconnect/%E4%B8%8B%E8%BD%BD%E4%B8%8E%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B.md)
+- [和 aTrust 有什么区别](https://github.com/alipymanbu/Android/blob/master/%E5%AE%98%E7%BD%91%E7%89%88APP%E4%B8%8B%E8%BD%BD/easyconnect/%E5%92%8C%20aTrust%20%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB.md)
+- [收不到登录验证码怎么办](https://github.com/alipymanbu/Android/blob/master/%E5%AE%98%E7%BD%91%E7%89%88APP%E4%B8%8B%E8%BD%BD/easyconnect/%E6%94%B6%E4%B8%8D%E5%88%B0%E7%99%BB%E5%BD%95%E9%AA%8C%E8%AF%81%E7%A0%81%E6%80%8E%E4%B9%88%E5%8A%9E.md)
+- [服务器地址怎么填](https://github.com/alipymanbu/Android/blob/master/%E5%AE%98%E7%BD%91%E7%89%88APP%E4%B8%8B%E8%BD%BD/easyconnect/%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%9C%B0%E5%9D%80%E6%80%8E%E4%B9%88%E5%A1%AB.md)
+- [校外访问图书馆数据库的几种方式](https://github.com/alipymanbu/Android/blob/master/%E5%AE%98%E7%BD%91%E7%89%88APP%E4%B8%8B%E8%BD%BD/easyconnect/%E6%A0%A1%E5%A4%96%E8%AE%BF%E9%97%AE%E5%9B%BE%E4%B9%A6%E9%A6%86%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F.md)
+- [登录后能干什么](https://github.com/alipymanbu/Android/blob/master/%E5%AE%98%E7%BD%91%E7%89%88APP%E4%B8%8B%E8%BD%BD/easyconnect/%E7%99%BB%E5%BD%95%E5%90%8E%E8%83%BD%E5%B9%B2%E4%BB%80%E4%B9%88.md)
+- [连不上或用不了的常见原因](https://github.com/alipymanbu/Android/blob/master/%E5%AE%98%E7%BD%91%E7%89%88APP%E4%B8%8B%E8%BD%BD/easyconnect/%E8%BF%9E%E4%B8%8D%E4%B8%8A%E6%88%96%E7%94%A8%E4%B8%8D%E4%BA%86%E7%9A%84%E5%B8%B8%E8%A7%81%E5%8E%9F%E5%9B%A0.md)
+- [全部软件目录](https://github.com/alipymanbu/Android/blob/master/%E5%85%A8%E9%83%A8%E8%BD%AF%E4%BB%B6%E7%9B%AE%E5%BD%95.md)
 
-That's it!  Just make sure that the assembly for your protocol is in the EasyConnect directory and it will be picked up and used automatically by the application.  The protocol plugin architecture is still evolving, so if you find limitations to the API or want other things added to enable you to implement your protocol, please feel free to contact me or send me a pull request.  I'm also happy to accept pull requests for your protocol projects to include them in the main application.
+---
 
-This project is licensed under the [GPL](GPL.txt)
+> 本仓库由上游项目 fork 而来，原始说明见[上游仓库](https://github.com/lstratman/EasyConnect)。
